@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            background-color: black;
+            color: cyan;
+        }
+        #myForm {
+            width: 25%;
+            margin: auto;
+
+        }
+        table{
+            border: 2px solid cyan;
+            width: 50%;
+            margin:2% auto;
+
+        }
+         th,tr,td{
+            border: 1px solid cyan;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <form id="myForm" action="" onsubmit="addDetails(event)">
+        <input type="text" placeholder="Name of the task" id="name"/>
+        <input type="submit" name="" id="btn"/>
+    </form>
+    <div>
+        <table id="box">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Data</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</body>
+</html>
+
+<script>
+
+    function task(NoT)///NoT is Name of the Task
+    {
+        this.name = NoT;  // we just want to take only name of task from the input box,so we passing the function parameter i.e NoT;
+        this.date = new Date();//Date() innbuilt function which returns current date with time
+       // console.log(date)
+       this.status=false;//by default the status should be false as mentioned in problem statement
+    }
+
+    var table_box = document.getElementById("box");//getting table with id
+    var tb = document.createElement("tbody");//creating a new tbody ele
+    //tb.setAttribute("class","tbod");//givn
+
+    function addDetails(e)//when ever you click on the submit btn of form you will be called to this function
+    {
+        e.preventDefault();//to stay the details 
+        var myform = document.getElementById("myForm");// getiing form with id
+        var tbr = document.createElement("tr");//creating new tr ele
+
+        var nameOfTask = myform.name.value;//we are getting the name of the task with the id.value of input box
+        var obj = new task(nameOfTask);//creating a new obj
+
+        var td1 = document.createElement("td");//creating a new tabledata td element for NoT
+        var td2 = document.createElement("td");//creating a new tabledata td element for Date
+        var td3 = document.createElement("td");//creating a new tabledata td element for Status
+
+        td1.textContent=obj.name;///assigning a text to each element
+        td2.textContent=obj.date;///assigning a text to each element
+        td3.textContent=obj.status;///assigning a text to each element
+        tbr.append(td1,td2,td3);//appending all the table-data to table row
+        tb.append(tbr);//then appending tablerow to tbody
+        table_box.append(tb);//then whole tbody to the main table
+
+    }
+
+    
+</script>
+
+
