@@ -1,0 +1,45 @@
+*{
+    background-color: black;
+    color: white;
+}
+.main{
+    display: flex;
+    flex-direction: row;
+}
+#myForm {
+    width: 25%;
+    margin: auto;
+
+}
+input{
+    background-color: white;
+    padding: 10px;
+    color: black;
+    font-size: x-large;
+}
+#btn{
+    background-color: cyan;
+    color: black;
+    padding: 10px;
+    font-size: x-large;
+}
+table{
+    border: 2px solid white;
+    width: 50%;
+    margin:2% auto;
+
+}
+ th,tr,td{
+    border: 1px solid white;
+    text-align: center;
+}
+#dis{
+    width: 9%;
+    border: 5px solid cyan;
+    text-align: center;
+    padding-top: 35px;
+    height: 100px;
+    font-size: xx-large;
+    border-radius: 50%;
+    font-weight: bolder;
+}
